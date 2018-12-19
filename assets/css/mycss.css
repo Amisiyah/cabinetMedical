@@ -1,0 +1,70 @@
+.navbar-fixed-top{
+background-color:lightgreen;
+}
+body, .nav-sidebar {
+  margin: 10px;
+  padding-bottom: 30px;
+}
+
+.nav-sidebar {
+  margin: -5px;
+}
+
+.jumbotron{
+  padding: 25px;
+}
+.jumbotron h1{
+  font-size: 35px;
+  color: Green;
+  font-weight: bold;
+
+}
+
+.jumbotron p{
+  font-size: 20px;
+
+}
+
+.img-fullwidth{
+	padding:10px;
+	width:100%;
+}
+
+h6, h5, h4, h3, h2, h1 {
+  font-weight:bold;
+}
+
+span, p{
+    font-size: 18px;
+    line-height: 1.5em;
+}
+
+li {
+    font-size: 16px;
+    line-height: 1.5em;
+}
+
+
+.story-moral{
+  padding: 5px;
+  border: 2px solid;
+  border-radius: 10px;
+  background-color: #555;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+}
+
+
+.og-price {
+   color:red;
+   text-decoration:line-through;
+}
+
+.navbar-brand {
+/*border:solid 1px;
+border-radius: 20px;
+color: ;*/
+font-weight: Bold;
+}

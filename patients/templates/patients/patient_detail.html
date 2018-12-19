@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+
+    .medical-files-title{
+        margin:20px;
+    }
+
+    .div-mare{
+	overflow: auto;
+    }
+
+    hr.style-seven {
+        overflow: visible; /* For IE */
+        height: 19px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1px 0 0 0;
+        border-radius: 20px;
+    }
+
+    hr.style-seven:before { /* Not really supposed to work, but does */
+        display: block;
+            content: "";
+        height: 30px;
+        margin-top: -31px;
+        border-style: solid;
+        border-color: black;
+        border-width: 0 0 1px 0;
+        border-radius: 20px;
+    }
+
+    .stilizare-div{
+        width: 25%;
+        float:left;
+        padding: 15px;
+        border:1px solid black;
+        background-color: #4eb8d6;
+        margin: 10px;
+    }
+
+    @media screen and (max-width: 900px) {
+      .stilizare-div{
+        width: 90%;
+        margin: 20px;
+        overflow: hidden;
+
+
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      .stilizare-div{
+        width: 80%;
+        overflow: auto;
+      }
+    }
+
+        </style>
+</head>
+<body>
+    <h2> Patient: {{ object.last_name }} {{ object.first_name }}</h2>
+    <!-- TODO: make jinja2 template to work -->
+
+    <br>
+    <h3 class="medical-files-title">Medical files details</h3>
+    <h5> Total number of consultations: {{ object.medicalFile.all.count }} </h5>
+
+    {% for format in object.medicalFile.all %}
+
+        <div class="div-mare">
+
+            <div class="stilizare-div">
+
+                <center><b> {{ forloop.counter }}: {{ format }} </b> </center>
+                <hr class="style-seven">
+                <i style="text-align: justify;padding: 15px;">
+                    {% for doct in format.doctors.all %}
+                        {{ doct }}
+                    {% endfor %}
+                </i>
+                <br>
+                <i style="text-align: justify;padding: 15px;"> Comments: {{ format.comments }} </i>
+                <br>
+                <i style="text-align: justify;padding: 15px;"> Prescription: {{ format.prescription }} </i>
+                <br>
+                <i style="text-align: justify;padding: 15px;"> Price for consultation: {{ format.price_for_consultation }} </i>
+                <br>
+                <i style="text-align: justify;padding: 15px;"> Consultation date:
+                    {% for calend in format.calendar.all %}
+                        {{ calend }}
+                    {% endfor %}
+                </i>
+            </div>
+        </div>
+    {% endfor %}
+    <br>
+    <!-- TODO: button -->
+    <div class="clearfix">
+        <a href="{{ patients.get_medicalfile_list_url }}"> <p class="btn btn-info"> Back to list </p> </a>
+    </div>
+
+{% endblock %}
+</body>
+</html>

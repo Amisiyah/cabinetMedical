@@ -1,0 +1,56 @@
+<!-- templates/base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Cabinet Medical </title>
+    {% load static %}
+    {% load staticfiles %}
+
+    <!-- Bootstrap core CSS -->
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-theme.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.css' %} "  rel="stylesheet"/>
+    <link href="{% static 'css/footer-navbar.css' %} "  rel="stylesheet"/>
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <link href="{% static 'css/mycss.css' %}" rel="stylesheet">
+
+    <!-- custom style -->
+    {% block style %} {% endblock %}
+</head>
+<body>
+
+    <!-- add navigation bar  -->
+    {% include 'navbar.html' %}
+
+
+
+    <div class="container-fluid">
+      <div class="row">
+        {% block jumbotron %} {% endblock %}
+
+        {% block content %} {% endblock %}
+        </div>
+    </div>
+
+
+    <!-- make some spacing between content and footer. -->
+    <br><br>
+
+
+
+    <!-- jQurery -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/holder.js' %}"></script>
+    <!-- add custom jQurery -->
+    {% block jquery %} {% endblock %}
+
+
+    <!-- footer -->
+    {% include 'footer.html' %}
+
+</body>
+</html>
